@@ -8,6 +8,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <signal.h>
+#include <pthread.h>
+
+void sigintHandle(int signo)
+{
+    printf("sigintHandle: signo[%d]\n", signo);
+}
 
 int func(int n)
 {
@@ -62,7 +69,7 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
+void* threadRoutine(void* arg)
 {
     while(1)
     {
@@ -85,7 +92,28 @@ int main(int argc, char *argv[])
         system("echo hello");
         sleep(3);
     }
+}
 
+int main(int argc, char *argv[])
+{
+    if (SIG_ERR == signal(SIGINT, sigintHandle))
+    {
+        printf("signal error\n");
+        return -1;
+    }
 
+    pthread_t threadId;
+    
+    int ret =  pthread_create(&threadId, NULL, threadRoutine, NULL);
+    if (ret != 0)
+    {
+        printf("pthread_create error\n");
+        return -1;
+    }
+    
+    while(1)
+    {
+        sleep(5);
+    }
     return 0;
 }

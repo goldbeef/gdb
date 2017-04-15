@@ -174,4 +174,90 @@ gdb 管理暂停点
     nexti/ni
 
     display/i $pc
+-----------------------------------
+信号处理
+    handle signum keyword
+        signum
+            SIGINT
+            SIGCHILD
+        keyword
+            nostop
+            stop
+
+            print 
+            noprint 
+
+            pass/noignore
+            nopass/ignore 
+
+    --------------------
+    info signals
+    info handle
+-----------------------------------
+线程stop
+    break linenum thread threadnum [if condition]
+    ----------------------------
+    堆栈
+        backtrace/bt [n]
+        backtrace/bt [-n]
+        
+        frame/f/selec-frame [n]
+        frame/f [-n]
+
+        up/up-silently [n]
+        down/down-silently [n]
+        --------------------
+        info fream/f 
+
+        info args
+
+        info locals
+
+        info catch 
+        --------------------
+-----------------------------------
+查看源程序
+    list/l
+
+    list/l linenum
+    list/l filename:linenum
+    list/l classname::funcname
+
+    list/l func 
+
+    list/l - 
+
+    show listsize
+    set listsize count 
+
+    list/l firstline, lastline
+    list/l ,lastline
+
+    list/l +
+
+    list/l +offest
+    list/l -offset 
+
+    list/l *address
+-----------------------------------
+搜索源代码
+    forward-search regexp
+    search regexp 
+    reverse-search regexp 
+-----------------------------------
+制定源文件的目录
+    directory/dir [dirname]
+    show directories
+-----------------------------------
+查看源代码的内存
+    info line linenum/func/classname:func
+    info line filename:linenum/filename:func/filename:classname:func
+    disassemble 
+-----------------------------------
+查看运行时数据
+    print expr 
+    print /<f> expr 
+
+
+    
 
