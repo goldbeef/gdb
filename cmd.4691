@@ -1,0 +1,177 @@
+-----------------------------------
+g++/gcc -g
+-----------------------------------
+gdb elf-exc-file 
+-----------------------------------
+gdb-cmd
+    list, l
+    ----------------------------
+    break func-name
+    ----------------------------
+    
+    info break 
+    ----------------------------
+
+    next, n
+    ----------------------------
+    
+    continue, c
+    ----------------------------
+
+    print, p
+    ----------------------------
+    bt 
+    bt full  
+    ---------------------------
+    finish 
+        finish function call
+    ---------------------------
+    quit, q
+    ---------------------------
+    help all 
+    help commandname
+    ---------------------------
+    shell shell-command   
+    ---------------------------
+    make [args]
+    shell make [args]
+    ---------------------------
+    run, r
+    ---------------------------
+    set args 1 2 3
+    show args 
+    ---------------------------
+    path dirname
+    show paths
+    ---------------------------
+    set environment name=value
+    show environment
+    ---------------------------
+    pwd
+    cd dirname
+    ---------------------------
+    info program
+-----------------------------------
+gdb 启动
+    ---------------------------
+    gdb elf-exc-file
+    gdb elf-exc-file core-file
+    gdb elf-exc-file pid 
+    ----------------------------
+    gdb 参数
+        -s filename
+        -symbols=filename
+        ----------------------------
+        -se=filename
+        ----------------------------
+        -c corefile
+        -core=corefile
+        ----------------------------
+        -d directoryname
+        -directory=directoryname
+-----------------------------------
+gdb 暂停程序的方式
+    ---------------------------
+    breakpoint (break, b)
+       --------------------
+        break funcion
+        break class::function 
+        break function(type, type) 
+        break filename:function
+        
+        break linenum
+        break filename:linenum
+
+        break +offset
+        break -offset
+        
+        info add varname/funcname
+        break *address
+        
+        break ... if condition
+
+        --------------------
+        info breakpoint [n]
+        info break [n]
+    ---------------------------
+    watchpoint
+        watch expr
+
+        rwatch expr 
+
+        awatch expr 
+
+        watch expr if condition
+        --------------------
+        info watchpoint
+
+    ---------------------------
+    catchpoint
+        catch event
+            throw
+            catch 
+            exec 
+            fork 
+            vfork
+            load
+            unload
+        tcatch event
+    ---------------------------
+-----------------------------------
+gdb 管理暂停点
+    clear
+
+    clear funcname
+    clear filename:funcname
+
+    clear line 
+    clear filename:line 
+
+    delete [breakpoint] [range...]
+
+    disable [breakpoint] [range...]
+
+    enable [breakpoint] [range...]
+    enable [breakpoint] once [range...]
+    enable [breakpoint] delete [range...]
+-----------------------------------
+停止条件的维护(breakpoint, watchpoint)
+    condition bnum
+    condition bnum expression
+    
+    ignore bnum count
+-----------------------------------
+为停止点设置运行命令
+    command bnum 
+    ... command list ...
+    end
+    --------------------
+    command 2
+    printf "i is [%d]\n", i
+    end 
+清除断点命令
+    command bnum 
+    end
+-----------------------------------
+断点菜单
+    b CTest:: 
+
+-----------------------------------
+恢复程序运行以及单步调试
+    continue/c/fg [ignore-count]
+    
+    step/s [count]
+
+    next/n [count]
+
+    set step-mode
+    set step-mode on
+    set step-mode off 
+
+    until/u
+
+    stepi/si
+    nexti/ni
+
+    display/i $pc
+
