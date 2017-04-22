@@ -11,6 +11,12 @@
 #include <signal.h>
 #include <pthread.h>
 
+struct StTest
+{
+    int a;
+    int b;
+};
+
 void sigintHandle(int signo)
 {
     printf("sigintHandle: signo[%d]\n", signo);
@@ -111,8 +117,11 @@ int main(int argc, char *argv[])
         return -1;
     }
     
+    int array[3] = {1, 2, 3};
     while(1)
     {
+        int* ptr = array;
+        StTest test;
         sleep(5);
     }
     return 0;

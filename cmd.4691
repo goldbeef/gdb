@@ -258,7 +258,130 @@ gdb 管理暂停点
     print expr 
     print /<f> exp 
 表达式
-    
+    @
+        数组相关的
+    ::
+        文件或函数中的变量
+    {<type>} <addr>
+        某种类型的地址
+程序变量
+    全局变量
+    静态全局变量
+    局部变量(scope可见)
+    --------------------
+    filename::varname 
+    funcname::varname
+    --------------------
+数组 
+    p *arrayname@len
+输出格式
+    p/format varname 
+        x
+        d
+        u
+        o
+        t
+        a
+        c
+        f
+查看内存
+    x/nfu addr 
+    --------------------
+    x/3uh
+自动显示
+    display <expr>
+    display/<fmt> <expr>
+    display/<fmt> <addr>
+
+    undisplay <dnum...>
+    enable display <dnum...>
+    disable display <dnum...>
+
+    info display
+    --------------------
+    display/i $pc 
+    --------------------
+设置显示选项
+    set print address
+    set print address on|off 
+    show print address
+
+    set print array 
+    set print array on|off 
+    show print array 
+
+    set print elements <num_of_elements>
+    show print elements
+
+    set print null-stop on|off 
+    show print null-stop
+
+    set print pretty on|off 
+    show print pretty 
+
+    set print sevenbit-strings on|off 
+    show print sevenbit-strings
+
+    set print union on|off 
+    show print  union 
+
+    --------------------
+    c++ language
+        set print object on|off 
+        show print object 
+
+        set print static-member on|off 
+        show print static-member
+
+        set print vtbl on|off 
+        show print vtbl 
+gdb历史记录
+    $num
+    print $num 
+gdb环境变量
+    $varname = *object
+
+    show convenience 
+
+    set $i = 0
+    print bar[$i++]->contents
+查看寄存器
+    info registers
+    info all-registers
+    info registers <regname> 
+    --------------------
+    print $eip
+修改变量值
+    whatis varname 
+
+    print varname=value
+    set var varname=value 
+gdb跳转执行
+    jump <linespec>
+        filename:linenum
+        +linenum
+        -linenum
+    jump <addr>
+    -------------------- 
+    set $pc=address
+产生信号
+    signal signum
+        //send directly to program to debuged
+    kill -SIGNUM pid 
+        //send to program to debuged, but catched by gdb 
+函数强制返回
+    return 
+    return <expr>
+强制调用函数
+    call <func-expr>
+    print <func-expr>
+-----------------------------------
+gdb语言环境
+    show language
+    info frame
+    info source
+
+
 
     
 
