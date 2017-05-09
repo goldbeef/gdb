@@ -27,6 +27,7 @@ gdb-cmd
         finish function call
     ---------------------------
     quit, q
+        ctrl+d
     ---------------------------
     help all 
     help commandname
@@ -39,7 +40,9 @@ gdb-cmd
     run, r
     ---------------------------
     set args 1 2 3
-    show args 
+        gdb --args program arg1 arg2 arg3 
+
+    show args
     ---------------------------
     path dirname
     show paths
@@ -69,6 +72,15 @@ gdb 启动
         ----------------------------
         -d directoryname
         -directory=directoryname
+        ---------------------------
+        -x cmdfile
+        --------------------------------
+        --args elf-exc-file  arg1 arg2  arg3
+        ---------------------------
+        -help
+        -h 
+        ---------------------------
+
 -----------------------------------
 gdb 暂停程序的方式
     ---------------------------
@@ -384,4 +396,4 @@ gdb语言环境
 SDF
 
     
-
+manul 30
