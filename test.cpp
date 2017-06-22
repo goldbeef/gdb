@@ -116,6 +116,7 @@ int main(int argc, char *argv[])
         printf("pthread_create error\n");
         return -1;
     }
+ 
     
     int array[3] = {1, 2, 3};
     while(1)
