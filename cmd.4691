@@ -228,6 +228,12 @@ gdb 管理暂停点
         info catch 
         --------------------
 -----------------------------------
+多进程
+    set detach-on-fork on/off 
+    info inferiors 
+    inferior jobNum
+    set follow-fork-mode child/parent
+-----------------------------------
 查看源程序
     list/l
 
